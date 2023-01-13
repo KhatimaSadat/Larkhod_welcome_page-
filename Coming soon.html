@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: rgba(86, 24, 185, 0.884);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+        }
+        .logo{
+            background-color: white;
+            padding: 10px;
+            border-radius: 50%;
+            color: black;
+            text-align: center;
+        }
+        .time{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          
+          
+          flex-wrap: wrap;
+        }
+        .time div {
+            background-color: white;
+            border-radius: 10%;
+            width: 50px;
+            padding: 10px;
+            margin: 10px 20px;
+            line-height: 20px;
+            text-align: center;
+            color: black;
+        }
+        .time div p , body p{
+            font-size: small;
+            font-weight: 100;
+            margin: 0px;
+            padding: 0px;
+        }
+        body p{
+            font-size: 17px;
+        }
+        body h1{
+            line-height: 60px;
+        }
+        .follow{
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 10px;
+            width: 36%;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .follow:hover{
+            box-shadow: 1px 2px 3px black;
+            cursor: pointer;
+        }
+        .follow a{
+            color: white;
+            text-decoration: none;
+        }
+        .follow :active{
+            color: green;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <p>لارشود</p>
+        <p>رهنما</p>
+        <p>instructer</p>
+    </div>
+    <h1>Coming Soon </h1>
+    <p>our E-learning plateform is under constructions</p>
+    <div class="time">
+        <div>
+            <h2 id="day" ></h2>
+            <p>days</p>
+        </div>
+        <div>
+            <h2 id="hours"></h2>
+            <p>hours</p>
+        </div>
+        <div>
+            <h2 id="minutes"></h2>
+            <p>minutes</p>
+        </div>
+        <div>
+            <h2 id="seconds"></h2>
+            <p>seconds</p>
+        </div>
+    </div>
+    <div class="follow">
+        <a href="www.google.com">Follow us for more updates</a>
+    </div>
+    <script>
+       var day = document.getElementById('day');
+       var hours = document.getElementById('hours');
+       var minutes = document.getElementById('minutes');
+       var seconds = document.getElementById('seconds');
+       var d= new Date();
+       day.innerHTML= 47 ;
+       hours.innerHTML= 10;
+       minutes.innerHTML= 58;
+       seconds.innerHTML=58;
+       
+      console.log(d.getFullYear());
+       console.log(d.getMonth());
+        console.log(d.getHours());
+        console.log(d.getMinutes());
+         console.log(d.getSeconds());
+        console.log(d.getMilliseconds());
+       
+       var ChangeDay= ()=>{
+      if( d.getFullYear()== 2023 && d.getMonth() < 2 ){
+            
+            if( d.getHours() == 0 && d.getMinutes() == 0 ){
+                  
+                      if(day.innerText>0) {
+                         day.innerText = Number(day.innerText) - Number(1);
+                          console.log("Done Day"); 
+                      }
+                      else if(day.innerText==0){
+                        day.innerText==0;
+                      }
+            }
+         }
+             
+      }
+  ChangeDay();
+  setInterval(ChangeDay,600000)
+  const ChangeHours=()=>{
+    if (d.getFullYear() == 2023 && d.getMonth() == 2) {
+
+          if ( day.innerText ==0 && hours>0) {
+              
+                hours.innerText = Number(hours.innerText) - Number(1);
+                console.log("Done hours");
+              
+          }
+      }
+  }    
+ setInterval(ChangeHours, 3600000)   
+      const ChangeMinutes = () => {
+            if (d.getFullYear() == 2023 && d.getMonth() == 2) {
+
+                if (hours.innerText==0 && minutes.innerText>0 ) {
+                    
+                        minutes.innerText = Number(minutes.innerText) - Number(1);
+                        console.log("Done Minutes");
+                    
+                }
+                else if(minutes.innerText==0){
+                    minutes.innerText = 0;
+                }
+            }
+        } 
+     setInterval(ChangeMinutes, 60000)  
+     const ChangeSeconds = () => {
+            if (d.getFullYear() == 2023 && d.getMonth() == 2) {
+
+                if (minutes.innerText==0 && seconds.innerText>0) {
+                    seconds.innerText = Number(seconds.innerText) - Number(1);
+                    console.log("Done Seconds");
+                }
+                else if(seconds.innerText==0){
+                    seconds.innerText = 0;
+                }
+            }
+        }
+        ChangeSeconds();
+        setInterval(ChangeSeconds, 1000)    
+    </script>
+</body>
+</html>
